@@ -1,4 +1,4 @@
-🌞 3D Sundial – Actual Clock
+🌞 3D Sundal – Actual Clock
 
 📌 Project Description
 
