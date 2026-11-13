@@ -1,0 +1,242 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 35px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff1ce;
+  background:
+    radial-gradient(ellipse at 50% 42%, #45301c 0%, #21180f 38%, #090b12 100%);
+}
+
+.heading {
+  text-align: center;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 7px;
+  color: #d7ad64;
+}
+
+.heading h1 {
+  margin-top: 10px;
+  font-size: clamp(32px, 7vw, 48px);
+  letter-spacing: 12px;
+  color: #f6d99d;
+  text-shadow: 0 0 25px #bd812e66;
+}
+
+.heading p {
+  margin-top: 8px;
+  color: #bca47e;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.hourglass-wrap {
+  position: relative;
+  width: min(350px, 85vw);
+  margin: 12px 0;
+  perspective: 1000px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.hourglass {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 25px 25px #000a);
+  transition: transform .5s ease;
+}
+
+.hourglass-wrap:hover .hourglass {
+  transform: rotateY(12deg) rotateX(-5deg);
+}
+
+.hourglass-shadow {
+  position: absolute;
+  bottom: 5px;
+  left: 20%;
+  width: 60%;
+  height: 20px;
+  background: #000;
+  filter: blur(15px);
+  border-radius: 50%;
+}
+
+.glass-glow {
+  position: absolute;
+  inset: 12% 20%;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 35px #a9e8ff18;
+}
+
+.sand-stream {
+  animation: streamGlow .8s ease-in-out infinite alternate;
+}
+
+.timer-panel {
+  width: min(360px, 90vw);
+  text-align: center;
+  padding: 22px;
+  border: 1px solid #c49a543d;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff0c, #ffffff03);
+  box-shadow: 0 15px 35px #0005, inset 0 1px #ffffff12;
+  backdrop-filter: blur(10px);
+}
+
+.timer-label {
+  color: #bda477;
+  font-size: 10px;
+  letter-spacing: 5px;
+}
+
+.timer {
+  margin: 10px 0 17px;
+  font-size: 43px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #ffdc91;
+  text-shadow: 0 0 20px #e5a83d66;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+  background: #ffffff19;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a66a20, #ffe39a);
+  border-radius: 10px;
+  transition: width 1s linear;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.controls button,
+.duration-options button {
+  cursor: pointer;
+  border: 1px solid #d4a75b80;
+  border-radius: 30px;
+  padding: 11px 24px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: .25s;
+}
+
+.start-btn {
+  color: #24170b;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffe5a4, #bd812e);
+  box-shadow: 0 5px 18px #d89c3c35;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px #d89c3c55;
+}
+
+.start-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  color: #f4d7a0;
+  background: #ffffff08;
+}
+
+.reset-btn:hover {
+  background: #ffffff18;
+}
+
+.duration-options {
+  margin-top: 25px;
+}
+
+.duration-options > span {
+  display: block;
+  color: #bda477;
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.duration-options div {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.duration-options button {
+  padding: 9px 13px;
+  color: #dfc79e;
+  background: #ffffff08;
+  font-size: 9px;
+}
+
+.duration-options button.selected {
+  background: #d9a34e;
+  color: #24170b;
+}
+
+footer {
+  margin-top: 24px;
+  color: #a88b60;
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes streamGlow {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+
+@media (max-height: 800px) {
+  .app {
+    padding: 20px 12px;
+  }
+
+  .hourglass-wrap {
+    width: min(290px, 65vw);
+  }
+
+  .heading h1 {
+    font-size: 30px;
+  }
+}
